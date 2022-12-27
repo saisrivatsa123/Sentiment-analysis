@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if name %}
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Well done!</h4>
+        <p>Your Input is here 😉</p>
+        <hr>
+        <p class="mb-0">{{ name| capitalize }}</p>
+  </div>
+    <h1> {{ data }}</h1>
+{%else%}
+    <h1>What is your review. Curious to see 🤪</h1>
+    <br/>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        
+        {{ form.name.label }}
+        {{ form.name() }}
+        
+        <br/>
+
+        {{ form.submit() }}
+
+    </form>
+{% endif %}
+
+{% endblock %}
